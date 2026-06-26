@@ -1,0 +1,10 @@
+Module523100Name=StockReorder
+Module523100Desc=Automated supplier orders on low stock
+StockReorderDescription=Automated supplier orders on low stock
+StockReorderSetup=StockReorder Setup
+STOCKREORDER_DAYS_N=Number of days N to calculate sales
+STOCKREORDER_DAYS_N_Tooltip=Number of days over which the quantity sold will be summed for the automatic supplier order.
+Save=Save
+Settings=Settings
+ErrorFieldRequired=Field '%s' is required
+RecordSaved=Record saved

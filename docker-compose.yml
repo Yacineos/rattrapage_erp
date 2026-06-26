@@ -1,0 +1,36 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --init-connect=SET NAMES utf8mb4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./mariadb:/var/lib/mysql
+
+  dolibarr:
+    image: dolibarr/dolibarr:23
+    environment:
+      DOLI_INSTALL_AUTO: 1
+      DOLI_DB_HOST: mariadb
+      DOLI_DB_NAME: ${MYSQL_DATABASE}
+      DOLI_DB_USER: ${MYSQL_USER}
+      DOLI_DB_PASSWORD: ${MYSQL_PASSWORD}
+      DOLI_URL_ROOT: http://localhost:8080
+      DOLI_ADMIN_LOGIN: ${DOLI_ADMIN_LOGIN}
+      DOLI_ADMIN_PASSWORD: ${DOLI_ADMIN_PASSWORD}
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+      LC_CTYPE: en_US.UTF-8
+    depends_on:
+      - mariadb
+    ports:
+      - "8080:80"
+    volumes:
+      - ./documents:/var/www/documents
+      - ./custom:/var/www/html/custom

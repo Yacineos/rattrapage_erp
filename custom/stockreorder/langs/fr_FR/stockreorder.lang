@@ -1,0 +1,10 @@
+Module523100Name=StockReorder
+Module523100Desc=Automatisation des commandes fournisseurs lors de baisse de stock
+StockReorderDescription=Automatisation des commandes fournisseurs lors de baisse de stock
+StockReorderSetup=Configuration du module StockReorder
+STOCKREORDER_DAYS_N=Période d'analyse des ventes (en jours)
+STOCKREORDER_DAYS_N_Tooltip=Nombre de jours précédents sur lesquels les ventes (facturées) sont sommées pour calculer la quantité à commander automatiquement.
+Save=Enregistrer
+Settings=Configuration
+ErrorFieldRequired=Le champ '%s' est obligatoire
+RecordSaved=Enregistrement effectué
